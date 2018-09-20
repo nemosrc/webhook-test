@@ -2,20 +2,12 @@ language: java
 sudo: true
 jdk:
   - openjdk8
-notifications:
-  discord:
-    channels:
-      - Travis CI: $WEBHOOK_URL
-    pull_request_template:
-      - 'Build [#%{build_number}](%{build_url}) ([%{commit}](%{compare_url})) of %{repository}@%{branch} in PR [#%{pull_request_number}](%{pull_request_url}) by %{author} %{result} in %{duration}'
-    branch_template:
-      - 'Build [#%{build_number}](%{build_url}) ([%{commit}](%{compare_url})) of %{repository}@%{branch} by %{author} %{result} in %{duration}'
-#after_success:
-#  - chmod +x discord.sh
-#  - ./discord.sh success
-#after_failure:
-#- chmod +x discord.sh
-#- ./discord.sh failure
+after_success:
+  - chmod +x discord.sh
+  - ./discord.sh success
+after_failure:
+- chmod +x discord.sh
+- ./discord.sh failure
 #after_success:
 #  - wget https://raw.githubusercontent.com/k3rn31p4nic/travis-ci-discord-webhook/master/send.sh
 #  - chmod +x send.sh

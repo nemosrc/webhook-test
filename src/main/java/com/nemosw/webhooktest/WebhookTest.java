@@ -5,4 +5,8 @@ package com.nemosw.webhooktest;
  */
 public class WebhookTest
 {
+    public String getHelloMessage()
+    {
+        return "Hello World!";
+    }
 }
